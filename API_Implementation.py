@@ -35,8 +35,8 @@ async def create_upload_file(file: UploadFile = File(...)):
     with open(f"{IMAGEDIR}{file.filename}", "wb") as f:
         f.write(contents)
 
-    # filepath = IMAGEDIR + file.filename
-    filepath = IMAGEDIR + "hell.jpg"
+    filepath = IMAGEDIR + file.filename
+    # filepath = IMAGEDIR + "hell.jpg"
     Result = ModelLoading.finalImageOutput(filepath)
     # Result = ModelLoading.finalImageOutput(contents)
    
