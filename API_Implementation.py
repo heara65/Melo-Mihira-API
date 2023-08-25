@@ -32,11 +32,12 @@ async def create_upload_file(file: UploadFile = File(...)):
     contents = await file.read()  
 
     # example of how you can save the file
-    with open(f"{IMAGEDIR}{file.filename}", "wb") as f:
-        f.write(contents)
+    # with open(f"{IMAGEDIR}{file.filename}", "wb") as f:
+    #     f.write(contents)
 
-    filepath = IMAGEDIR + file.filename
-    Result = ModelLoading.finalImageOutput(filepath)
+    # filepath = IMAGEDIR + file.filename
+    # Result = ModelLoading.finalImageOutput(filepath)
+    Result = ModelLoading.finalImageOutput(contents)
    
 
     return {"Gender": Result[1], "Age": Result[0], "Ethnicity": Result[2]
